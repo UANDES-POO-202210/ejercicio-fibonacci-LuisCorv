@@ -1,36 +1,36 @@
 const fs = require("fs");
 
 //Hacer funcion recursiva para obtener la suma
-let valor_suma=function(y){
-    let actual=0;
+let addition_value=function(y){
+    let value=0;
       if (y===0){
-          actual=0;
-          return actual;
+          value=0;
+          return value;
       }
       if (y===1){
-          actual=1;
-          return actual;
+          value=1;
+          return value;
       }
       else{
-          actual=(valor_suma(y-1))+(valor_suma(y-2));
-          return actual
+          value=(addition_value(y-1))+(addition_value(y-2));
+          return value
       }
 }
-//hacer como una funcion recursiva para obtener el fibonacci
+//do as a recursive function to get the fibonacci
 let fibonacci = function(x, y) {
-    let suma=0;
+    let addition=0;
   if ((y = x)) {
-    suma=valor_suma(y);
-    return suma;
+    addition=addition_value(y);
+    return addition;
   }
   if (y < x) {
-    valor_suma(y);
+    addition_value(y);
     y++;
     return fibonacci(x, y);
   }
 };
 
-//Abrir el archivo y hacer fibonacci
+//Open the file and make fibonacci
 fs.readFile("numero.txt", "utf8", (err, data) => {
   if (err) {
     console.error(err);
